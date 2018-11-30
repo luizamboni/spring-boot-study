@@ -9,4 +9,8 @@ build and run with **Maven**
  $ mvn clean package spring-boot:run
 ```
 
-if you want only 
+If you want only package
+
+```bash
+ $ mvn clean package
+```
