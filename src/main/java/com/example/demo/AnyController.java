@@ -32,9 +32,9 @@ public class AnyController {
     
 
     public Iterable<Any> things() {
-
+    	// only to force use of "spring-boot-devtools" changing this var
+    	Integer abc = 334;
     	Iterable<Any> things = thingsRepository.findAll();
-    	
     	return things;
     }
     

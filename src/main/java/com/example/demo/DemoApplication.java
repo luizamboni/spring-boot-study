@@ -1,8 +1,5 @@
 package com.example.demo;
 
-import java.util.List;
-
-import javax.annotation.PostConstruct;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
