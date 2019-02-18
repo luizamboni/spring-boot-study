@@ -1,5 +1,7 @@
-package com.example.demo;
+package com.example.demo.rest;
 
+import com.example.demo.domain.Any;
+import com.example.demo.repositories.ThingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +31,6 @@ public class AnyController {
 	  produces = { "application/json", "application/xml" }, 
 	  method = RequestMethod.GET
     )
-    
-
     public Iterable<Any> things() {
     	// only to force use of "spring-boot-devtools" changing this var
     	Integer abc = 334;
