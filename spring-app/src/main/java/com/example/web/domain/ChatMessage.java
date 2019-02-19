@@ -1,11 +1,12 @@
-package com.example.demo.domain;
+package com.example.web.domain;
 
 
 import org.springframework.lang.NonNull;
 
 import java.util.Date;
 
-public class PollerMessage {
+
+public class ChatMessage {
 
     @NonNull
     private Date createdAt;

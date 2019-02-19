@@ -1,8 +1,7 @@
-package com.example.demo.tasks;
+package com.example.web.tasks;
 
-import com.example.demo.Application;
-import com.example.demo.domain.Any;
-import com.example.demo.repositories.ThingsRepository;
+import com.example.Application;
+import com.example.web.repositories.ThingsRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

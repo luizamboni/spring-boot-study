@@ -1,7 +1,7 @@
-package com.example.demo.rest;
+package com.example.web.rest;
 
-import com.example.demo.domain.Any;
-import com.example.demo.repositories.ThingsRepository;
+import com.example.web.domain.Any;
+import com.example.web.repositories.ThingsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -34,7 +34,15 @@ spring:
         contentType: application/json
       bindings:
         chatMessagesOutput:
+          destination: chatMessagesOutput
+        chatMessagesInput:
           destination: chatMessagesInput
 
+        chatMessagesFromApi:
+          destination: chatMessagesInput
+
+
+
   rabbitmq:
-    addresses: amqp://127.0.0.1
+    addresses: amqp://rabbit
+#    addresses: amqp://localhost

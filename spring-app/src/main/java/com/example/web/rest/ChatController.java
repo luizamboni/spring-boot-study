@@ -1,9 +1,10 @@
-package com.example.demo.rest;
+package com.example.web.rest;
 
-import com.example.demo.domain.PollerMessage;
-import com.example.demo.infrastructure.binders.MessagesProcessor;
-import com.example.demo.publishers.ChatMessagePublisher;
+import com.example.web.domain.ChatMessage;
+import com.example.web.infrastructure.binders.MessagesSource;
+import com.example.web.publishers.ChatMessagePublisher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.http.ResponseEntity;
 import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,27 +13,30 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
+@EnableBinding(value = { MessagesSource.class })
 public class ChatController {
 
+
     @Autowired
-    MessagesProcessor messagePublisher;
+    ChatMessagePublisher messagePublisher;
 
     @PostMapping("/message")
-    public ResponseEntity sendMessage(@RequestBody PollerMessage messageReceived) {
+    public ResponseEntity sendMessage(@RequestBody ChatMessage chatMessageReceived) {
 
 
         System.out.println(this.getClass().getName() + " -> receiving");
 
         System.out.println(
-            messageReceived.toString()
+            chatMessageReceived.toString()
         );
 
-        Boolean sended = messagePublisher.pollerOut().send(
-            MessageBuilder.withPayload(messageReceived).build()
-        );
+        Boolean sended = messagePublisher.publish(chatMessageReceived);
+
+//        messagePublisher.pollerOut().send(
+//            MessageBuilder.withPayload(chatMessageReceived).build()
+//        );
 
         if(sended == true) {
-
             return ResponseEntity.status(202).build();
         } else {
             return ResponseEntity.status(400).build();

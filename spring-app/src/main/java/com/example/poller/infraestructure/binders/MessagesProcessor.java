@@ -1,4 +1,4 @@
-package com.example.demo.infrastructure.binders;
+package com.example.poller.infraestructure.binders;
 
 import org.springframework.cloud.stream.annotation.Input;
 import org.springframework.cloud.stream.annotation.Output;

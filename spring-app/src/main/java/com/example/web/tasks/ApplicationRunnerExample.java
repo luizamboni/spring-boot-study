@@ -1,6 +1,6 @@
-package com.example.demo.tasks;
+package com.example.web.tasks;
 
-import com.example.demo.Application;
+import com.example.Application;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.ApplicationArguments;

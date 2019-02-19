@@ -9,6 +9,13 @@ services:
 
   webapp:
     build: ./spring-app/.
+    image: spring-demo
     ports:
       - 8080:8080
-  # worker:
+    command: 
+      - web
+
+  worker:
+    image: spring-demo
+    command: 
+      - poller
