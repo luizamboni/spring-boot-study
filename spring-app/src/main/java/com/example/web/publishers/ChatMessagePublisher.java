@@ -13,10 +13,10 @@ public class ChatMessagePublisher {
     private MessagesSource messagePublisher;
 
     public Boolean publish(Object msg) {
-
-
         Boolean sended = messagePublisher.pollerOut().send(
-                MessageBuilder.withPayload(msg).build()
+                MessageBuilder.withPayload(msg)
+                        .setHeader("contentType", "application/json")
+                        .build()
         );
 
         return sended;
