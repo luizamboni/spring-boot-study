@@ -2,7 +2,7 @@
 
 docker-compose kill
 
-docker-compose rm
+docker-compose -f rm
 
 docker-compose build
 

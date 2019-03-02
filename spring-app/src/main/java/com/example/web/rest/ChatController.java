@@ -1,12 +1,11 @@
 package com.example.web.rest;
 
-import com.example.web.domain.ChatMessage;
+import com.example.commons.domain.ChatMessage;
 import com.example.web.infrastructure.binders.MessagesSource;
 import com.example.web.publishers.ChatMessagePublisher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.stream.annotation.EnableBinding;
 import org.springframework.http.ResponseEntity;
-import org.springframework.messaging.support.MessageBuilder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -32,9 +31,6 @@ public class ChatController {
 
         Boolean sended = messagePublisher.publish(chatMessageReceived);
 
-//        messagePublisher.pollerOut().send(
-//            MessageBuilder.withPayload(chatMessageReceived).build()
-//        );
 
         if(sended == true) {
             return ResponseEntity.status(202).build();

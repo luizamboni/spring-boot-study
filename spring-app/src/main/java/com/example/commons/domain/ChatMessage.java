@@ -1,19 +1,23 @@
-package com.example.web.domain;
+package com.example.commons.domain;
 
 
 import lombok.Builder;
 import lombok.Data;
-import org.springframework.lang.NonNull;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Date;
 
 @Data
 @Builder
+@Entity
 public class ChatMessage {
 
+    @Id
+    @GeneratedValue
+    private Long id;
 
-
-    @NonNull
     private Date createdAt;
     private String text;
     private String sessionId;

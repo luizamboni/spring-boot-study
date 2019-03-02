@@ -14,7 +14,8 @@ public class Application {
 	public static void main(String[] args) throws Exception {
 
 
-		String mode = (args.length == 0) ? "poller" : args[0];
+//		String mode = (args.length == 0) ? "poller" : args[0];
+		String mode = (args.length == 0) ? "web" : args[0];
 
 
 		ApplicationContext context;
