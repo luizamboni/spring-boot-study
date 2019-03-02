@@ -1,22 +1,34 @@
 package com.example.web.tasks;
 
 import com.example.Application;
+import com.example.web.domain.ChatMessage;
+import com.example.web.publishers.ChatMessagePublisher;
 import com.example.web.repositories.ThingsRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.util.Date;
 
 import static java.lang.Thread.sleep;
 
 
 @Component
+@Slf4j
 public class SeedTask implements CommandLineRunner {
 
+    @Autowired
+    ChatMessagePublisher publisher;
+
     ThingsRepository repository;
-    private static final Logger log = LoggerFactory.getLogger(Application.class);
+
+//    private static final Logger log = LoggerFactory.getLogger(Application.class);
 
     public SeedTask(ThingsRepository repository) {
+
         this.repository = repository;
     }
 
@@ -59,11 +71,21 @@ public class SeedTask implements CommandLineRunner {
 //        });
 
         // this can be a pooler in a endpoint
-//        while(true) {
-//            sleep(1000);
-//
-//            log.info("more one second");
-//        }
+        while(true) {
+            try {
+                sleep(500);
+                ChatMessage chatMsg = ChatMessage.builder()
+                        .sessionId("teste-xyz")
+                        .createdAt(new Date())
+                        .text("mensagem de teste")
+                        .build();
+
+                publisher.publish(chatMsg);
+                log.info("more one loop");
+            } catch (Exception ex) {
+                log.error(ex.getMessage());
+            }
+        }
 
     }
 }
