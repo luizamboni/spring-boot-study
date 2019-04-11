@@ -2,6 +2,12 @@ SpringBoot Demo Application
 ===
 This project have study purpose of SpringBoot Framework
 
+# Components
+
+ - RabbitMq
+ - Eureka
+ - spring-demo (worker and restApi)
+
 # Build
 build and run with **Maven**
 

@@ -19,3 +19,9 @@ services:
     image: spring-demo
     command: 
       - poller
+
+  eureka: 
+    image: spring-study-eureka
+    build: ./eureka/.
+    ports:
+      - 8761:8761
