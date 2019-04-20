@@ -1,27 +1,33 @@
 version: '2.2'
 
 services:
-  rabbit: 
-    image: rabbitmq:3.7-management
-    ports:
-     - 5672:5672
-     - 15672:15672
+  # rabbit: 
+  #   image: rabbitmq:3.7-management
+  #   ports:
+  #    - 5672:5672
+  #    - 15672:15672
 
-  webapp:
-    build: ./spring-app/.
-    image: spring-demo
-    ports:
-      - 8080:8080
-    command: 
-      - web
+  # webapp:
+  #   build: ./spring-app/.
+  #   image: spring-demo
+  #   ports:
+  #     - 8080:8080
+  #   command: 
+  #     - web
 
-  worker:
-    image: spring-demo
-    command: 
-      - poller
+  # worker:
+  #   image: spring-demo
+  #   command: 
+  #     - poller
 
   eureka: 
     image: spring-study-eureka
     build: ./eureka/.
     ports:
       - 8761:8761
+
+  config-server: 
+    image: spring-study-config-server
+    build: ./config-server/.
+    ports:
+      - 8080:8080
