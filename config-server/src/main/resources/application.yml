@@ -1,6 +1,15 @@
 spring:
+#  profiles:
+#    active: native
+
   application:
     name: "config-server"
+
+#  cloud:
+#    config:
+#      server:
+#        native:
+#          searchLocations: file://app/configs
 
 eureka:
   client:
@@ -8,3 +17,4 @@ eureka:
       defaultZone: http://eureka:8761/eureka/
   instance:
     preferIpAddress: true
+

@@ -1,22 +1,21 @@
 SpringBoot Demo Application
 ===
-This project have study purpose of SpringBoot Framework
+This project have study purpose of SpringBoot Frameworkx using docker-composex
 
 # Components
 
  - RabbitMq
  - Eureka
  - spring-demo (worker and restApi)
+ - Config-Server
 
-# Build
-build and run with **Maven**
+# Eureka
+the service discovery of SprinClould framework
 
-```bash
- $ mvn clean package spring-boot:run
-```
+# ConfigServer
+the configuration microoservice node of SprinClould framework
 
-If you want only package
+see more details [here](https://github.com/spring-cloud/spring-cloud-config)
 
-```bash
- $ mvn clean package
-```
+Access to see how configServer protocol works
+[http://localhost:8080/rest/default](http://localhost:8080/rest/default)
