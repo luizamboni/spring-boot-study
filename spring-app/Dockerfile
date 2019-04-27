@@ -14,4 +14,4 @@ COPY . /app
 
 RUN mvn package
 
-ENTRYPOINT  [ "java", "-Drun.jvmArguments='-Dserver.port=8080'",  "-jar", "target/demo-0.0.1-SNAPSHOT.jar" ]
+ENTRYPOINT  [ "java",  "-jar", "target/demo-0.0.1-SNAPSHOT.jar" ]

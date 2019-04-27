@@ -23,11 +23,25 @@ services:
   eureka: 
     image: spring-study-eureka
     build: ./eureka/.
+    environment: 
+      - SERVER_PORT=8761
     ports:
       - 8761:8761
 
   config-server: 
     image: spring-study-config-server
     build: ./config-server/.
+    environment: 
+      - SERVER_PORT=8080
     ports:
       - 8080:8080
+
+  abc-app: 
+    image: abc-app
+    build: ./abc-app/.
+    environment: 
+      - SERVER_PORT=8084
+      - SPRING_CLOUD_CONFIG_URI=http://config-server:8080
+    restart: always
+    ports:
+      - 8084:8084
