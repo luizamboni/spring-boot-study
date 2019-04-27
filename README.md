@@ -29,3 +29,7 @@ Access to see how configServer protocol works
 # AbcApp
 Abc is a dummy application to designed
 only to test **ConfigServer** and **Eureka**
+
+```bash
+$ curl http://localhost:8084/any
+```
