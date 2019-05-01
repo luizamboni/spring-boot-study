@@ -17,12 +17,13 @@ public class AnyController {
 
     @GetMapping("/any")
     public String any() {
-
         return content;
     }
 
     @GetMapping("/thing")
-    public String thing(){
-        return abcClient.any();
+    public String thing() {
+        String messageFromOther = abcClient.any();
+
+        return content + " -- " + messageFromOther;
     }
 }
