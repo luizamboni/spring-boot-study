@@ -26,7 +26,6 @@ services:
     environment: 
       - SERVER_PORT=8761
       - SPRING_ZIPKIN_BASEURL=http://zipkin:9411
-
     ports:
       - 8761:8761
 
@@ -36,7 +35,6 @@ services:
     environment: 
       - SERVER_PORT=8080
       - SPRING_ZIPKIN_BASEURL=http://zipkin:9411
-
     ports:
       - 8080:8080
 
@@ -49,7 +47,6 @@ services:
       - SPRING_APPLICATION_NAME=a
       - ABCCLIENT_NAME=b
       - SPRING_ZIPKIN_BASEURL=http://zipkin:9411
-
     restart: always
     ports:
       - 8084:8084
@@ -62,7 +59,6 @@ services:
       - SPRING_APPLICATION_NAME=b
       - ABCCLIENT_NAME=c
       - SPRING_ZIPKIN_BASEURL=http://zipkin:9411
-
     restart: always
     ports:
       - 8085:8085
@@ -75,10 +71,21 @@ services:
       - SPRING_APPLICATION_NAME=c
       - ABCCLIENT_NAME=a
       - SPRING_ZIPKIN_BASEURL=http://zipkin:9411
-
     restart: always
     ports:
       - 8086:8086
+
+  zuul:
+    build: ./zuul/.
+    image: api-gateway
+    environment: 
+      - SERVER_PORT=9000
+      - SPRING_CLOUD_CONFIG_URI=http://config-server:8080
+      - SPRING_APPLICATION_NAME=zuul
+      - SPRING_ZIPKIN_BASEURL=http://zipkin:9411
+    restart: always
+    ports:
+      - 9000:9000
 
   zipkin:
     image: openzipkin/zipkin

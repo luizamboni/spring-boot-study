@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public interface AbcClient {
 
 
-    @RequestMapping("/any")
+    @RequestMapping("${abcclient.name}/any")
     String any();
 }

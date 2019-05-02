@@ -15,12 +15,12 @@ public class AnyController {
     @Value("${messages.hello}")
     private String content;
 
-    @GetMapping("/any")
+    @GetMapping("/${spring.application.name}/any")
     public String any() {
         return content;
     }
 
-    @GetMapping("/thing")
+    @GetMapping("/${spring.application.name}/thing")
     public String thing() {
         String messageFromOther = abcClient.any();
 

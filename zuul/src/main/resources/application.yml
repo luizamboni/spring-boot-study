@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: zuul
+
+zuul:
+  prefix: /api
+#  ignored-services: '*'
+  routes:
+    a:
+      path: /a/**
+      serviceId: a
+      strip-prefix: false
+    b:
+      path: /b/**
+      serviceId: b
+      strip-prefix: false
+    c:
+      path: /c/**
+      serviceId: c
+      strip-prefix: false
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka:8761/eureka/
+  instance:
+    preferIpAddress: true
